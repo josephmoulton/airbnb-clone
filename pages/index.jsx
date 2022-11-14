@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "../components/Header"
+import Banner from "../components/Banner"
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       </Head>
 
       <Header></Header>
+      <Banner></Banner>
     </div>
   );
 };
