@@ -10,7 +10,7 @@
     "@heroicons/react": "^2.0.13",
     "date-fns": "^2.29.3",
     "geolib": "^3.3.3",
-    "next": "latest",
+    "next": "^13.0.3",
     "react": "^18.2.0",
     "react-date-range": "^1.4.0",
     "react-dom": "18.2.0",

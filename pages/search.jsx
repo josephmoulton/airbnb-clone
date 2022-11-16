@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import InfoCard from "../components/InfoCard";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
-import DrawMap from "../components/DrawMap";
+import Map from "../components/Map";
 
 function Search({ searchResults }) {
   const router = useRouter();
@@ -54,8 +54,8 @@ function Search({ searchResults }) {
           </div>
         </section>
 
-        <section className="hidden lg:inline-flex lg:min-w-[400px] xl:min-w-[600px]">
-            <DrawMap searchResults={searchResults}></DrawMap>
+        <section className="hidden lg:inline-flex lg:min-w-[400px] xl:min-w-[600px] pt-14">
+            <Map searchResults={searchResults}></Map>
         </section>
       </main>
 
