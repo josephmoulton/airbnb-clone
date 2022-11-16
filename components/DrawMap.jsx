@@ -3,10 +3,11 @@ import ReactMapGL from "react-map-gl";
 
 function DrawMap({ searchResults }) {
   return (
-    <ReactMapGL
-      mapStyle="mapbox://styles/mapbox/streets-v9"
-      mapboxApiAccessToken={process.env.mapbox_key}
-    ></ReactMapGL>
+    <></>
+    // <ReactMapGL
+    //   mapStyle="mapbox://styles/mapbox/streets-v9"
+    //   mapboxApiAccessToken={process.env.mapbox_key}
+    // ></ReactMapGL>
   );
 }
 
