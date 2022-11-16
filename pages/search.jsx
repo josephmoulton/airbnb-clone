@@ -15,13 +15,13 @@ function Search({ searchResults }) {
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   return (
-    <div className="h-screen">
+    <div className="">
       <Header
         placeholder={`${location} | ${range} | ${numberOfGuests} guests`}
       />
 
       <main className="flex">
-        <section className="flex-grow pt-14 px-6">
+        <section className="flex-grow pt-2 px-6">
           <p className="text-xs">
             300+ Stays | {range} | for {numberOfGuests} guests
           </p>
@@ -54,8 +54,8 @@ function Search({ searchResults }) {
           </div>
         </section>
 
-        <section className="hidden lg:inline-flex lg:min-w-[400px] xl:min-w-[600px] pt-14">
-            <Map searchResults={searchResults}></Map>
+        <section className="hidden lg:inline-flex lg:min-w-[600px] xl:min-w-[1000px] h-screen sticky top-0 z-30">
+            <Map  searchResults={searchResults}></Map>
         </section>
       </main>
 
