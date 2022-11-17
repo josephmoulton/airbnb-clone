@@ -2,7 +2,14 @@ import { getCenter } from "geolib";
 import { Result } from "postcss";
 import React from "react";
 import { useState } from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import ReactMapGL, {
+  FullscreenControl,
+  GeolocateControl,
+  Marker,
+  NavigationControl,
+  Popup,
+  ScaleControl,
+} from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 function Map({ searchResults }) {
@@ -29,6 +36,10 @@ function Map({ searchResults }) {
       mapStyle="mapbox://styles/mapbox/streets-v11"
       mapboxAccessToken={process.env.mapbox_key}
     >
+      <GeolocateControl position="top-left" />
+      <FullscreenControl position="top-left" />
+      <NavigationControl position="top-left" />
+      <ScaleControl />
       {searchResults.map((result) => (
         <div key={result.long}>
           <Marker
@@ -36,26 +47,23 @@ function Map({ searchResults }) {
             latitude={result.lat}
             offsetLeft={-20}
             offsetTop={-10}
+            onClick={(e) => {
+              e.originalEvent.stopPropagation();
+              setSelectedLocation(result);
+            }}
           >
-            <p
-              onClick={() => setSelectedLocation(result)}
-              className="cursor-pointer text-xl animate-bounce"
-            >
-              🚩
-            </p>
+            <p className="cursor-pointer text-xl animate-bounce">🚩</p>
           </Marker>
-          {selectedLocation.long === result.long ? (
+          {selectedLocation.long === result.long && (
             <Popup
-              latitude={result.lat}
-              longitude={result.long}
+              latitude={Number(result.lat)}
+              longitude={Number(result.long)}
               anchor="bottom"
               onClose={() => setSelectedLocation({})}
               closeOnClick={true}
             >
               {result.title}
             </Popup>
-          ) : (
-            false
           )}
         </div>
       ))}
